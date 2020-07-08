@@ -1,8 +1,10 @@
-const listRef = document.querySelector('#categories').children;
+const listRef = document.querySelectorAll('#categories>li.item');
 console.log(`В списке ${listRef.length} категории.`);
 
-for (let elem of listRef) {
-  let category = elem.firstElementChild.textContent;
-  let quantityElem = elem.lastElementChild.children.length;
-  console.log(`Категория: ${category} \nКоличество элементов: ${quantityElem}`);
-}
+const categoryAndQuantityRef = listRef.forEach(elem => {
+  console.log(
+    `Категория: ${
+      elem.querySelector('h2').textContent
+    } \nКоличество элементов: ${elem.querySelectorAll('li').length}`,
+  );
+});
